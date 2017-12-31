@@ -17,3 +17,18 @@
       </b-collapse>
   </b-navbar>
 </template>
+
+<script>
+import { navbarBus } from '../main'
+
+export default {
+  methods: {
+    showSearch () {
+      navbarBus.$emit('showSearch', true)
+    },
+    showQueue () {
+      navbarBus.$emit('showSearch', false)
+    }
+  }
+}
+</script>

@@ -6,6 +6,8 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+export const navbarBus = new Vue()
+
 Vue.use(VueFire)
 Vue.use(BootstrapVue)
 
