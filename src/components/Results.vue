@@ -11,15 +11,30 @@
         <div class="card-body">
           <h5>{{ video.snippet.title }}</h5>
           <a
-            class="btn btn-sm btn-info">Adicionar à Fila</a>
+            class="btn btn-sm btn-info"
+            @click="addToQueue(video)">Adicionar à Fila</a>
         </div>
       </div>
   </div>
 </template>
 
 <script>
+import db from '../Database'
+
+let videosRef = db.ref('videos')
+
 export default {
-  props: ['videos']
+  props: ['videos'],
+  methods: {
+    addToQueue (video) {
+      let newItem = {
+        videoId: video.id.videoId,
+        title: video.snippet.title,
+        thumb: video.snippet.thumbnails.medium.url
+      }
+      videosRef.push(newItem)
+    }
+  }
 }
 </script>
 

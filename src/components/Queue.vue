@@ -12,7 +12,11 @@
         :key="index">
         <td>{{ index+1 }}</td>
         <td>{{ video.title }}</td>
-        <td><a></a></td>
+        <td>
+          <a
+            class="btn btn-sm btn-danger"
+            @click="removeFromQueue(video)">X</a>
+        </td>
       </tr>
     </table>
   </div>
@@ -27,6 +31,11 @@ export default {
   firebase () {
     return {
       videos: videosRef
+    }
+  },
+  methods: {
+    removeFromQueue (video) {
+      videosRef.child(video['.key']).remove()
     }
   }
 }
